@@ -20,7 +20,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 /**
- * No Rest Api. This is just supposed as output medium for the prettifyed json.
+ * No Rest Api. This is just supposed as output medium for the prettifyed xml.
  */
 @ApplicationScoped
 @Path("xmlpretty")
@@ -46,7 +46,7 @@ public class XmlPrettyResource {
         try {
             xmlStream.read(new byte[4], 0, 4);
         } catch (IOException ex) {
-            return output -> output.write(asBytes("Unable to read json"));
+            return output -> output.write(asBytes("Unable to read xml"));
         }
 
         return output -> {
