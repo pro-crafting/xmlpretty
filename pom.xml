@@ -1,24 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.pro-crafting</groupId>
         <artifactId>pc-parent</artifactId>
         <version>9</version>
     </parent>
-
     <groupId>com.pro-crafting.tools</groupId>
     <artifactId>xmlpretty-web</artifactId>
     <version>1.0.1-SNAPSHOT</version>
-
     <scm>
         <connection>scm:git:git@github.com:pro-crafting/xmlpretty.git</connection>
         <url>https://github.com/pro-crafting/xmlpretty</url>
         <developerConnection>scm:git:git@github.com:pro-crafting/xmlpretty.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
     <properties>
         <!-- Settings -->
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -28,28 +23,22 @@
         <it.baseuri>127.0.0.1</it.baseuri>
         <sonar.organization>pro-crafting</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-
         <docker.name>postremus/${project.artifactId}</docker.name>
-
         <file.runner>${project.build.finalName}-runner.jar</file.runner>
-
         <!-- Dependency Versions -->
         <version.quarkus>1.2.0.Final</version.quarkus>
         <version.jackson>2.10.2</version.jackson>
-
         <!-- Plugin Versions -->
         <version.docker-maven-plugin>0.31.0</version.docker-maven-plugin>
         <version.maven-surefire-plugin>2.21.0</version.maven-surefire-plugin>
         <version.maven-failsafe-plugin>2.21.0</version.maven-failsafe-plugin>
         <version.sonar-maven-plugin>3.4.1.1168</version.sonar-maven-plugin>
-
         <!-- Test Dependency Versions -->
         <junit.jupiter.version>5.2.0</junit.jupiter.version>
         <junit.platform.version>1.2.0</junit.platform.version>
         <version.mockito-core>2.18.3</version.mockito-core>
         <version.rest-assured>3.1.0</version.rest-assured>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -89,7 +78,6 @@
                 </executions>
             </plugin>
         </plugins>
-
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -100,11 +88,9 @@
             </plugins>
         </pluginManagement>
     </build>
-
     <dependencyManagement>
         <dependencies>
             <!-- Internal dependencies -->
-
             <!-- External dependencies -->
             <dependency>
                 <groupId>io.quarkus</groupId>
@@ -113,8 +99,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-
             <dependency>
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
@@ -124,25 +108,24 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <!-- Quarkus Extensions -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
         </dependency>
-
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-health</artifactId>
         </dependency>
-
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-metrics</artifactId>
         </dependency>
-
-
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -150,21 +133,18 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${version.mockito-core}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>${version.mockito-core}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -172,7 +152,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <profiles>
         <profile>
             <id>docker</id>
@@ -211,7 +190,6 @@
                                                 </files>
                                             </inline>
                                         </assembly>
-
                                         <tags>
                                             <tag>latest</tag>
                                             <tag>${project.version}</tag>
