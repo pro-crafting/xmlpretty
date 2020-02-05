@@ -17,9 +17,9 @@ public class XMLMinifierFilterReader extends FilterReader {
             return -1;
         }
 
-        String buf = new String(cbuf, off, read);
-
-        buf = buf.replaceAll("(>)\\s*(<\\w)", "$1$2");
+        String buf = new String(cbuf, 0, read);
+        buf = buf.replaceAll("\\s+(<[^\\/])", "$1");
+        buf = buf.replaceAll("(<\\/\\w.*>)\\s+", "$1");
 
         int min = Math.min(buf.length(), read);
         buf.getChars(0, min, cbuf, off);
